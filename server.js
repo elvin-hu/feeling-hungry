@@ -95,6 +95,11 @@ app.get("/search", routes.determine_service, routes.search);
 app.get("/yelp_detail", routes.yelp_detail);
 
 
+app.get("/heroku_test", async (req, res) => {
+  res.json({test:"test"})
+  
+})
+
 //business details endpoint
 app.get("/business", async (req, res) => {
   const id = req.param("id");
