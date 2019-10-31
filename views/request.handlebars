@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Request!!!</title>
+    <meta name="viewport" content="width=320" />
+    <meta property="og:title" content="Cooper Union Demo" />
+    <meta property="og:url" content="https://cooper-union-request-response-demo.glitch.me" />
+    <meta property="og:description" content="A demo" />
+    <!--<link rel="stylesheet" type="text/css" href="template.css" />-->
+    {{#stylesheet}}
+      <link rel="stylesheet" type="text/css" href="{{stylesheet}}" />
+    {{/stylesheet}}
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.0/handlebars.min.js"></script>
+    <!--<script src="template.js"></script>-->
+    
+    <script>
+    
+      let data = fetch("https://eva-api.glitch.me/bluemono")
+        .then((response)=>{return response.json(response)})
+        .then((data)=>{
+        console.log(data);
+        
+        let message = `<h1 style="color:${data.color03}">message!!!</h1>"`
+        console.log(message)
+        
+        document.write(message)
+      });
+    
+    </script>
+  </head>
+  <body>
+    
+    
+    
+
+  </body>
+</html>

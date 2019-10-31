@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <meta name="viewport" content="width=320" />
+    <meta property="og:title" content="Cooper Union Demo" />
+    <meta property="og:url" content="https://cooper-union-request-response-demo.glitch.me" />
+    <meta property="og:description" content="A demo" />
+    <!--<link rel="stylesheet" type="text/css" href="template.css" />-->
+    {{#stylesheet}}
+      <link rel="stylesheet" type="text/css" href="{{stylesheet}}" />
+    {{/stylesheet}}
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.0/handlebars.min.js"></script>
+    <!--<script src="template.js"></script>-->
+  </head>
+  <body class="{{page}}">
+
+    <h1>{{description}}</h1>
+
+      <ul>
+        {{#examples}}
+          <li><a href="{{url}}">{{title}}</a></li>
+        {{/examples}}
+      </ul>
+
+  </body>
+</html>
