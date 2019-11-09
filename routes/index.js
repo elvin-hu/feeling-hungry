@@ -150,6 +150,34 @@ exports.yelp_detail = async (req, res) => {
   };
   let request = await fetch(url, requestConfig);
   const response = await request.json();
+  const categoriesResponse = response.categories;
+  var categoriesArray = [];
+  for (var i = 0; i < categoriesResponse.length; i++) {
+    categoriesArray.push(categoriesResponse[i].title)
+  }
+  
+  var starsArray = []
+  for (var i = 0; i < Math.floor(response.rating); i++) {
+    starsArray.push(1)
+  }
+  
+  var ratingToProcess = response.rating - Math.floor(response.rating)
+  
+    if (ratingToProcess >= 0.7) {
+        starsArray.push(1)
+      } else if (ratingToProcess >= 0.3 && ratingToProcess < 0.7) {
+        starsArray.push(2)
+      } else {
+        starsArray.push(0)
+      }
+  
+  if (starsArray.count < 5) {
+    starsArray.push(0)
+  }
+        
+  
+  
+  
   
   const formatted_response = {
       id: response.id || "error",
@@ -162,8 +190,9 @@ exports.yelp_detail = async (req, res) => {
       longitude:response.coordinates.longitude,
       price: response.price || "?",
       address: response.location.display_address || "",
-      photos: response.photos || ["https://fys.kuleuven.be/iks/images/empty.png/image"],
-      categories: ["Test 1", "Test 2"]
+      photos: response.photos || ["https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"],
+      categories: categoriesArray || ["Restaurant"],
+      stars: starsArray || [1,1,1,1,0] // 0: not filled, 1: filled, 2, half filled
     };
   
 
