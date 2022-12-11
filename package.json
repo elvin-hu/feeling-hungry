@@ -7,7 +7,7 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "express-handlebars": "1.2.1",
     "favicon": "0.0.2",
     "morgan": "1.5.1",
